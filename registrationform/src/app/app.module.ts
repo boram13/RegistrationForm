@@ -10,13 +10,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { ContainerComponent } from './container/container.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,

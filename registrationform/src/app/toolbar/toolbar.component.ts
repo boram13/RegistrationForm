@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,EventEmitter, Output} from '@angular/core';
 
 
 /**
@@ -11,5 +11,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./toolbar.component.css'],
 })
 export class ToolbarComponent {
- 
+
+  @Output() sidebarEmitter = new EventEmitter<boolean>();
+  menuStatus:boolean = false;
+  constructor() {}
+  ngOnInit(): void {
+    
+  }
+  
+  sidebarToggled(){
+    console.log('sidebar button clicked')
+    this.menuStatus = !this.menuStatus;
+    this.sidebarEmitter.emit(this.menuStatus);
+  }
 }
