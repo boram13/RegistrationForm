@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./container.component.css']
 })
 export class ContainerComponent {
+  sidebarStatus: boolean = false;
 
+  sidebarChange(event: boolean) {
+    this.sidebarStatus = event
+  } 
 }

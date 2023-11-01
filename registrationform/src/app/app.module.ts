@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ContainerComponent } from './container/container.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ContainerComponent } from './container/container.component';
     AppComponent,
     ToolbarComponent,
     SidebarComponent,
-    ContainerComponent
+    ContainerComponent,
+    RegisterUserComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,

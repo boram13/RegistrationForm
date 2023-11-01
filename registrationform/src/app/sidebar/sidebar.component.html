@@ -1,12 +1,9 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>registration tabs in here </p>
+    <p routerLink="/users">Users</p>
+    <p routerLink="/register">Register user</p>
   </mat-drawer>
-
-  <!-- <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
-  </div> -->
-
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
 </mat-drawer-container>

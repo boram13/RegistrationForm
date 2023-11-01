@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title='toolbarSidebar';
-  sidebarStatus:boolean = false;
-  sidebarChange(event: boolean) {
-    this.sidebarStatus = event
-  } 
 }

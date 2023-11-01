@@ -1,4 +1,4 @@
-import { Component , Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import { Component , Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 
 
@@ -7,16 +7,11 @@ import { MatDrawer } from '@angular/material/sidenav';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit, OnChanges{
+export class SidebarComponent implements OnChanges{
   @Input() sidebarStatus!: boolean
   @ViewChild('drawer') drawer!: MatDrawer
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  
-  showFilter = false
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.drawer.toggle(changes['sidebarStatus'].currentValue)
+    this.drawer?.toggle(changes['sidebarStatus'].currentValue)
   }
 }

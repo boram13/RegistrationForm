@@ -1,5 +1,2 @@
-<div class="container-fluid g-0">
-    <main>
-        <div class="display-area"></div>
-    </main>
-</div>
+<app-toolbar (sidebarEmitter)="sidebarChange($event)"></app-toolbar>
+<app-sidebar [sidebarStatus]="sidebarStatus"></app-sidebar>
