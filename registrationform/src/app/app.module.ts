@@ -9,13 +9,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { ContainerComponent } from './container/container.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,6 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     ContainerComponent,
     RegisterUserComponent,
     UsersListComponent,
-    RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,10 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     MatSidenavModule,
     MatListModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

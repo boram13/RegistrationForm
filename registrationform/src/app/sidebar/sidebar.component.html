@@ -1,11 +1,11 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav"  opened="true" mode="side">
      <mat-nav-list>
-        <mat-list-item>
-          <button mat-button routerLink="/users"> <mat-icon> list </mat-icon> Users </button>
+        <mat-list-item routerLink="/users">
+          <button mat-button> <mat-icon> list </mat-icon> Users </button>
         </mat-list-item>
-        <mat-list-item>
-          <button mat-button routerLink="/register"> <mat-icon> person </mat-icon> Register User </button>
+        <mat-list-item routerLink="/register">
+          <button mat-button> <mat-icon> person </mat-icon> Register User </button>
         </mat-list-item>
      </mat-nav-list>
   </mat-drawer>
