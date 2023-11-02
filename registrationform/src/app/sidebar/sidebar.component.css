@@ -20,5 +20,17 @@ mat-drawer{
   width:250px;
 }
 button{
-  background-color: aliceblue;
+  background-color: rgb(43, 148, 148);
+
+}
+
+mat-drawer-content{
+  text-align: center;
+}
+
+mat-list-item {
+  text-align:left;
+  min-height: 50px;
+  width: 200px;
+ 
 }

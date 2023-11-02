@@ -13,7 +13,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { ContainerComponent } from './container/container.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { UsersListComponent } from './users-list/users-list.component';
-
+import { MatListModule } from '@angular/material/list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { UsersListComponent } from './users-list/users-list.component';
     SidebarComponent,
     ContainerComponent,
     RegisterUserComponent,
-    UsersListComponent
+    UsersListComponent,
+    RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,10 @@ import { UsersListComponent } from './users-list/users-list.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
