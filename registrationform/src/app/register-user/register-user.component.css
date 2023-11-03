@@ -3,3 +3,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+mat-hint{
+    color:rgb(183, 32, 32);
+}

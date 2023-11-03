@@ -4,12 +4,18 @@
             <mat-form-field class="full-width">
                 <mat-label> First Name </mat-label>
                 <input formControlName="firstName" #firstNameInput matInput placeholder="First Name">
+                <mat-hint  *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.errors?.['required']">
+                    First name is required.
+                </mat-hint>
             </mat-form-field>
 
             <div class="col-md-6">
                 <mat-form-field class="full-width">
                     <mat-label> Last Name </mat-label>
                     <input formControlName="lastName" #lastNameInput matInput placeholder="Last Name">
+                    <mat-hint *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.errors?.['required']">
+                        Last name is required.
+                    </mat-hint>
                 </mat-form-field>
             </div>
 
@@ -17,11 +23,14 @@
                 <mat-form-field class="full-width">
                     <mat-label> Age </mat-label>
                     <input formControlName="age" type="number" #ageInput matInput placeholder="Age">
+                    <mat-hint *ngIf="profileForm.get('age')?.touched && profileForm.get('age')?.errors?.['required']">
+                        Age is required.
+                    </mat-hint>
                 </mat-form-field>
             </div>
         
             <mat-card-actions>
-                <button mat-raised-button color="primary"> Submit</button>
+                <button (click)="saveUser" [disabled]="profileForm.invalid" mat-raised-button color="primary"> Submit</button>
             </mat-card-actions>
         </div>
     </div>

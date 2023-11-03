@@ -11,6 +11,18 @@ export class UsersService {
       firstName: 'Bora',
       lastName: 'Menerja',
       age: 23,
+    },{
+      firstName: 'Ledio',
+      lastName: 'Menerja',
+      age: 18,
+    },{
+      firstName: 'Leonard',
+      lastName: 'Menerja',
+      age: 28,
+    },{
+      firstName: 'Ardit',
+      lastName: 'Sinani',
+      age: 28,
     })
   }
 
