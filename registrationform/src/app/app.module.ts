@@ -22,6 +22,9 @@ import { MatRadioModule} from '@angular/material/radio';
 import { MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatTableModule} from "@angular/material/table";
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatRadioModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    MatTableModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
