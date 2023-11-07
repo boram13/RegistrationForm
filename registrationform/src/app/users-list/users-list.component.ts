@@ -22,9 +22,7 @@ const Information_DATA: TableElement[] = [
   styleUrls: ['./users-list.component.css'],
  
 })
-// export class UsersListComponent {
 
-// }
 export class UsersListComponent {
   displayedColumns: string[] = ['position', 'name', 'surname', 'age'];
   dataSource = Information_DATA;
