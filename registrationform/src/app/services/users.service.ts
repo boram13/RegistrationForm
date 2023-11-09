@@ -5,9 +5,9 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UsersService {
-  users: User[] = []
+  items: User[] = []
   constructor() {
-    this.users.push({
+    this.items.push({
       firstName: 'Bora',
       lastName: 'Menerja',
       age: 23,
@@ -26,7 +26,7 @@ export class UsersService {
     })
   }
 
-  createUser(user: User) {
-    this.users.push(user)
+  createUser(item: User) {
+    this.items.push(item)
   }
 }

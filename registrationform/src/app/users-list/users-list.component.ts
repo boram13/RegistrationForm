@@ -1,29 +1,41 @@
 import { Component } from '@angular/core';
-
-export interface TableElement {
-  name: string;
-  position: number;
-  surname: string;
-  age: number;
-}
-
-const Information_DATA: TableElement[] = [
-  {position: 1, name: 'Bora',surname: 'Menerja', age:23  },
-  {position: 2, name: 'Eni', surname: 'Mnj',age:20},
-  {position: 3, name: 'Ina', surname: 'Mnj',age:20},
-  {position: 4, name: 'Era', surname: 'Mnj',age:20},
-  {position: 5, name: 'Troi',surname: 'Mnj',age:20},
-
-];
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {AfterViewInit, ViewChild} from '@angular/core';
+import { User } from '../models/user';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css'],
- 
 })
 
-export class UsersListComponent {
-  displayedColumns: string[] = ['position', 'name', 'surname', 'age'];
-  dataSource = Information_DATA;
+export class UsersListComponent implements AfterViewInit {
+  displayedColumns: string[] = [ 'firstName', 'lastName', 'age'];
+  dataSource = new MatTableDataSource();
+
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    private usersService: UsersService) {}
+
+  @ViewChild(MatSort) sort!: MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.data = this.usersService.items;
+  }
+
+  announceSortChange(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
+  }
+  
+  saveUser(form: User) {
+    console.log(form)
+  }
 }
