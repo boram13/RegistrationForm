@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Injectable({
   providedIn: 'root'
@@ -29,4 +30,9 @@ export class UsersService {
   createUser(item: User) {
     this.items.push(item)
   }
+  removeData(index:number) {
+    this.items.splice(index, 1);
+  }
+  
+  
 }

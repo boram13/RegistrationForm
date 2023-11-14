@@ -5,6 +5,9 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import { User } from '../models/user';
 import { UsersService } from '../services/users.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteConfirmComponent } from '../modals/delete-confirm/delete-confirm.component';
+
 
 @Component({
   selector: 'app-users-list',
@@ -13,12 +16,16 @@ import { UsersService } from '../services/users.service';
 })
 
 export class UsersListComponent implements AfterViewInit {
-  displayedColumns: string[] = [ 'firstName', 'lastName', 'age'];
+  displayedColumns: string[] = [ 'firstName', 'lastName', 'age','action'];
   dataSource = new MatTableDataSource();
 
+  
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
-    private usersService: UsersService) {}
+    private usersService: UsersService,
+    private dialog: MatDialog,
+
+    ) {}
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -34,8 +41,21 @@ export class UsersListComponent implements AfterViewInit {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
-  
-  saveUser(form: User) {
-    console.log(form)
-  }
+ 
+  onDelete(element: User, index: number): void {
+    
+    const dialogRef = this.dialog.open(DeleteConfirmComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    this.usersService.removeData(index);
+    console.log (this.usersService.removeData(index))
+    this.dataSource.data = this.usersService.items;
+
 }
+  
+  }
+  
+
+

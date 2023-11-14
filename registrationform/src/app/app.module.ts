@@ -25,6 +25,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSortModule} from '@angular/material/sort';
 import { MatTableModule} from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule} from '@angular/material/dialog';
+import { DeleteConfirmComponent } from './modals/delete-confirm/delete-confirm.component';
+
 
 @NgModule({
   declarations: [
@@ -55,9 +58,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatNativeDateModule,
     MatTableModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    DeleteConfirmComponent
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
