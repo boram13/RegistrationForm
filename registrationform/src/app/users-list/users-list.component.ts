@@ -7,12 +7,14 @@ import { User } from '../models/user';
 import { UsersService } from '../services/users.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteConfirmComponent } from '../modals/delete-confirm/delete-confirm.component';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css'],
+  
 })
 
 export class UsersListComponent implements AfterViewInit {
@@ -24,14 +26,14 @@ export class UsersListComponent implements AfterViewInit {
     private _liveAnnouncer: LiveAnnouncer,
     private usersService: UsersService,
     private dialog: MatDialog,
-
+    private router: Router
     ) {}
 
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-    this.dataSource.data = this.usersService.items;
+    this.dataSource.data = this.usersService.getAllUsers();
   }
 
   announceSortChange(sortState: Sort) {
@@ -47,15 +49,25 @@ export class UsersListComponent implements AfterViewInit {
     const dialogRef = this.dialog.open(DeleteConfirmComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if(true){
+        this.usersService.removeData(index);
+        this.dataSource.data = this.usersService.getAllUsers();
+      }
     });
-    this.usersService.removeData(index);
-    console.log (this.usersService.removeData(index))
-    this.dataSource.data = this.usersService.items;
-
+    
 }
+applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
   
   }
-  
 
 
+
+gotoRegisterUser() {
+  console.log()
+  this.router.navigate(['/register']);
+}
+
+
+}

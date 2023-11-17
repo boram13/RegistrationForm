@@ -27,6 +27,9 @@ import { MatTableModule} from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule} from '@angular/material/dialog';
 import { DeleteConfirmComponent } from './modals/delete-confirm/delete-confirm.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
 
 
 @NgModule({
@@ -60,7 +63,8 @@ import { DeleteConfirmComponent } from './modals/delete-confirm/delete-confirm.c
     MatSortModule,
     MatSnackBarModule,
     MatDialogModule,
-    DeleteConfirmComponent
+    DeleteConfirmComponent,
+    MatTooltipModule
    
   ],
   providers: [],

@@ -29,9 +29,9 @@ export class RegisterUserComponent implements OnInit {
   
   saveUser(form: FormGroup) {
     console.log(form.value)
-    console.log(this.usersService.items)
+    console.log(this.usersService.getAllUsers())
     this.usersService.createUser(form.value)
-    console.log(this.usersService.items)
+    console.log(this.usersService.getAllUsers())
     this.profileForm.reset();
     this.showSnackBar();
   

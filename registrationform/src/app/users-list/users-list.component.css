@@ -1,6 +1,30 @@
 table {
+    position:absolute;
     width: 100%;
+    top:80px;
   }
   th.mat-sort-header-sorted {
     color: black;
+  }
+ 
+  #searchButton{
+    position : absolute;
+    right:20px;
+    top: 1px;
+    background-color: rgb(43, 148, 148);
+    height:52px;
+    width: 56px;
+  }
+  .mat-mdc-form-field  {
+    position: absolute;
+    top: 8px;
+    right: 80px;
+    font-size: 18px;
+    width:500px;
+  }
+  #add{
+    position : absolute;
+    right:20px;
+    top: 8px;
+    font-size: 18px;
   }

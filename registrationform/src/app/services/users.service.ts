@@ -1,38 +1,39 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  items: User[] = []
   constructor() {
-    this.items.push({
-      firstName: 'Bora',
-      lastName: 'Menerja',
-      age: 23,
-    },{
-      firstName: 'Ledio',
-      lastName: 'Menerja',
-      age: 18,
-    },{
-      firstName: 'Leonard',
-      lastName: 'Menerja',
-      age: 28,
-    },{
-      firstName: 'Ardit',
-      lastName: 'Sinani',
-      age: 28,
-    })
   }
 
   createUser(item: User) {
-    this.items.push(item)
+    const isData = localStorage.getItem("Users");
+    if (isData == null) {
+      let newArr = [];
+      newArr.push(item);
+      localStorage.setItem("Users", JSON.stringify(newArr));
+    } else {
+      const oldData = JSON.parse(isData);
+      oldData.push(item);
+      localStorage.setItem("Users", JSON.stringify(oldData))
+    }
   }
-  removeData(index:number) {
-    this.items.splice(index, 1);
+
+  getAllUsers(): User[] {
+    const localStorageUsers = localStorage.getItem("Users");
+    if(localStorageUsers != null) {
+      const localData = JSON.parse(localStorageUsers)
+      return localData
+    } else {
+      return []
+    }
   }
-  
-  
+
+  removeData(userIndex:number) {
+    let elements = this.getAllUsers()
+    elements.splice(userIndex,1);
+    localStorage.setItem("Users", JSON.stringify(elements));
+  }
 }
